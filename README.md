@@ -2,6 +2,7 @@
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the project root directory first.
+Open `NXCDLivenessSDK.xcworkspace` in Xcode and run.
 
 ## Requirements
 
