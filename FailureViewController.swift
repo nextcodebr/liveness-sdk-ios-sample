@@ -102,6 +102,14 @@ class FailureViewController: UIViewController {
         return buttonAction
     }()
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        if #available(iOS 13.0, *) {
+            return .darkContent
+        } else {
+            return .default
+        }
+    }
+
     public weak var delegate: FailureViewControllerDelegate?
 
     override func viewDidLoad() {

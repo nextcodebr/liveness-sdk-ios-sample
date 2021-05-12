@@ -75,9 +75,9 @@
 			children = (
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 				1493A56D262DAA0E00BE213F /* AppDelegate.swift */,
-				1493A4F1262DA29600BE213F /* FailureViewController.swift */,
 				1493A4F2262DA29600BE213F /* StartViewController.swift */,
 				1493A4F3262DA29600BE213F /* SuccessViewController.swift */,
+				1493A4F1262DA29600BE213F /* FailureViewController.swift */,
 				1493A4FB262DA2AE00BE213F /* Main.storyboard */,
 				1493A4FF262DA2B600BE213F /* LaunchScreen.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,

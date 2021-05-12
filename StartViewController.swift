@@ -11,6 +11,14 @@ import NXCDLivenessSDK
 class StartViewController: UIViewController {
     @IBOutlet weak var viewButtonContainer: UIView!
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        if #available(iOS 13.0, *) {
+            return .darkContent
+        } else {
+            return .default
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -45,7 +53,8 @@ class StartViewController: UIViewController {
         )
 
         let livenessServiceConfiguration = LivenessServiceConfiguration(isTest: false, apiKey: "<put your api key here>")
-        let livenessCameraViewController = LivenessCameraViewController(livenessServiceConfiguration: livenessServiceConfiguration, appearance: appearance)
+        let parameters = LivenessPoseDetectionParameters(poseDetectionTimeout: 30.0)
+        let livenessCameraViewController = LivenessCameraViewController(livenessServiceConfiguration: livenessServiceConfiguration, poseDetectionParameters: parameters, appearance: appearance)
         livenessCameraViewController.delegate = self
         self.present(livenessCameraViewController, animated: true)
     }

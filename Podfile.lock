@@ -20,11 +20,11 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.3.1)
     - "GoogleToolboxForMac/NSString+URLArguments (= 2.3.1)"
   - "GoogleToolboxForMac/NSString+URLArguments (2.3.1)"
-  - GoogleUtilities/Environment (7.3.1):
+  - GoogleUtilities/Environment (7.4.0):
     - PromisesObjC (~> 1.2)
-  - GoogleUtilities/Logger (7.3.1):
+  - GoogleUtilities/Logger (7.4.0):
     - GoogleUtilities/Environment
-  - GoogleUtilities/UserDefaults (7.3.1):
+  - GoogleUtilities/UserDefaults (7.4.0):
     - GoogleUtilities/Logger
   - GoogleUtilitiesComponents (1.0.0):
     - GoogleUtilities/Logger
@@ -52,13 +52,13 @@ PODS:
     - nanopb/encode (= 2.30908.0)
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
-  - NXCDLivenessSDK (1.0.0):
+  - NXCDLivenessSDK (1.0.2):
     - GoogleMLKit/FaceDetection (~> 2.1.0)
   - PromisesObjC (1.2.12)
   - Protobuf (3.15.8)
 
 DEPENDENCIES:
-  - "NXCDLivenessSDK (from `git@github.com:nextcodebr/liveness-sdk-ios.git`, tag `1.0.1`)"
+  - "NXCDLivenessSDK (from `git@github.com:nextcodebr/liveness-sdk-ios.git`, tag `1.0.2`)"
 
 SPEC REPOS:
   trunk:
@@ -78,28 +78,28 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   NXCDLivenessSDK:
     :git: "git@github.com:nextcodebr/liveness-sdk-ios.git"
-    :tag: 1.0.1
+    :tag: 1.0.2
 
 CHECKOUT OPTIONS:
   NXCDLivenessSDK:
     :git: "git@github.com:nextcodebr/liveness-sdk-ios.git"
-    :tag: 1.0.1
+    :tag: 1.0.2
 
 SPEC CHECKSUMS:
   GoogleDataTransport: cd9db2180fcecd8da1b561aea31e3e56cf834aa7
   GoogleMLKit: 6ca2a10de262ee1017b52ac045e8967884ace992
   GoogleToolboxForMac: 471e0c05d39506e50e6398f46fa9a12ae0efeff9
-  GoogleUtilities: e1d9ed4e544fc32a93e00e721400cbc3f377200d
+  GoogleUtilities: 284cddc7fffc14ae1907efb6f78ab95c1fccaedc
   GoogleUtilitiesComponents: a69c0b3b369ba443e988141e75ef49d9010b1c80
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
   MLKitCommon: 9ed187a042139d51c0d8bf6a8301bb20b375c576
   MLKitFaceDetection: 5b92261dd6e4205e3dab0df62537ac3f4e90e5db
   MLKitVision: 51385878c9100024478971856510f9271ff555b5
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
-  NXCDLivenessSDK: d932eeec2d172973fa983a09877b5aa652370999
+  NXCDLivenessSDK: 2df2f6374ea315b46f7478865ffe160776d12d5f
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   Protobuf: adb85cd18a15bd1a777c158af9fd6e612a0e6d69
 
-PODFILE CHECKSUM: e34f3e2f2088c0c1c8f646698673565e6e338d14
+PODFILE CHECKSUM: 234a532e3590d51f4137187cbdcd9b4984a17719
 
 COCOAPODS: 1.10.1
