@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol FailureViewControllerDelegate: class {
+protocol FailureViewControllerDelegate: AnyObject {
     func failureViewControllerMainAction()
 }
 

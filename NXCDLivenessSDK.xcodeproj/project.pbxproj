@@ -10,13 +10,15 @@
 		1493A4F4262DA29600BE213F /* FailureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1493A4F1262DA29600BE213F /* FailureViewController.swift */; };
 		1493A4F5262DA29600BE213F /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1493A4F2262DA29600BE213F /* StartViewController.swift */; };
 		1493A4F6262DA29600BE213F /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1493A4F3262DA29600BE213F /* SuccessViewController.swift */; };
-		1493A4FC262DA2AE00BE213F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1493A4FB262DA2AE00BE213F /* Main.storyboard */; };
 		1493A500262DA2B600BE213F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1493A4FF262DA2B600BE213F /* LaunchScreen.storyboard */; };
 		1493A56E262DAA0E00BE213F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1493A56D262DAA0E00BE213F /* AppDelegate.swift */; };
 		55857497E733ED2348E1353E /* Pods_NXCDLivenessSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7272844398138830613B2BEA /* Pods_NXCDLivenessSDK_Example.framework */; };
 		5993B8D340A34DB277DB4838 /* Pods_NXCDLivenessSDK_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10F7CAC35778072881AAFD84 /* Pods_NXCDLivenessSDK_Tests.framework */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		74C0A49526FA53FC000C5E77 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C0A49426FA53FC000C5E77 /* MainViewController.swift */; };
+		74C0A49926FA5496000C5E77 /* OtherSideDocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C0A49826FA5496000C5E77 /* OtherSideDocumentViewController.swift */; };
+		74C0A49B26FA54D0000C5E77 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C0A49A26FA54D0000C5E77 /* Service.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +36,6 @@
 		1493A4F1262DA29600BE213F /* FailureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FailureViewController.swift; sourceTree = "<group>"; };
 		1493A4F2262DA29600BE213F /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		1493A4F3262DA29600BE213F /* SuccessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
-		1493A4FB262DA2AE00BE213F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		1493A4FF262DA2B600BE213F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1493A56D262DAA0E00BE213F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5494401B992E92F0775A3C6F /* Pods-NXCDLivenessSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NXCDLivenessSDK_Example.debug.xcconfig"; path = "Target Support Files/Pods-NXCDLivenessSDK_Example/Pods-NXCDLivenessSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -46,6 +47,9 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		7272844398138830613B2BEA /* Pods_NXCDLivenessSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NXCDLivenessSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		74C0A49426FA53FC000C5E77 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		74C0A49826FA5496000C5E77 /* OtherSideDocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherSideDocumentViewController.swift; sourceTree = "<group>"; };
+		74C0A49A26FA54D0000C5E77 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		8C6F4163DF40E68ED6FB65BB /* Pods-NXCDLivenessSDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NXCDLivenessSDK_Tests.release.xcconfig"; path = "Target Support Files/Pods-NXCDLivenessSDK_Tests/Pods-NXCDLivenessSDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E4E2BA474D63793D60A99960 /* Pods-NXCDLivenessSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NXCDLivenessSDK_Example.release.xcconfig"; path = "Target Support Files/Pods-NXCDLivenessSDK_Example/Pods-NXCDLivenessSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,10 +79,12 @@
 			children = (
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 				1493A56D262DAA0E00BE213F /* AppDelegate.swift */,
+				74C0A49426FA53FC000C5E77 /* MainViewController.swift */,
 				1493A4F2262DA29600BE213F /* StartViewController.swift */,
+				74C0A49826FA5496000C5E77 /* OtherSideDocumentViewController.swift */,
 				1493A4F3262DA29600BE213F /* SuccessViewController.swift */,
 				1493A4F1262DA29600BE213F /* FailureViewController.swift */,
-				1493A4FB262DA2AE00BE213F /* Main.storyboard */,
+				74C0A49A26FA54D0000C5E77 /* Service.swift */,
 				1493A4FF262DA2B600BE213F /* LaunchScreen.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACE81AFB9204008FA782 /* Tests */,
@@ -198,11 +204,11 @@
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = 2W6RVLF68F;
-						LastSwiftMigration = 1240;
+						LastSwiftMigration = 1250;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1250;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 				};
@@ -234,7 +240,6 @@
 			files = (
 				1493A500262DA2B600BE213F /* LaunchScreen.storyboard in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
-				1493A4FC262DA2AE00BE213F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,11 +335,15 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-NXCDLivenessSDK_Example/Pods-NXCDLivenessSDK_Example-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/MLKitFaceDetection/GoogleMVFaceDetectorResources.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/MLKitObjectDetection/MLKitObjectDetectionResources.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/MLKitObjectDetectionCommon/MLKitObjectDetectionCommonResources.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/NXCDLivenessSDK/NXCDLivenessSDK.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMVFaceDetectorResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MLKitObjectDetectionResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MLKitObjectDetectionCommonResources.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NXCDLivenessSDK.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,9 +359,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1493A56E262DAA0E00BE213F /* AppDelegate.swift in Sources */,
+				74C0A49B26FA54D0000C5E77 /* Service.swift in Sources */,
 				1493A4F4262DA29600BE213F /* FailureViewController.swift in Sources */,
 				1493A4F6262DA29600BE213F /* SuccessViewController.swift in Sources */,
+				74C0A49926FA5496000C5E77 /* OtherSideDocumentViewController.swift in Sources */,
 				1493A4F5262DA29600BE213F /* StartViewController.swift in Sources */,
+				74C0A49526FA53FC000C5E77 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,7 +500,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -505,7 +517,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -527,7 +539,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NXCDLivenessSDK_Example.app/NXCDLivenessSDK_Example";
 			};
 			name = Debug;
@@ -546,7 +558,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NXCDLivenessSDK_Example.app/NXCDLivenessSDK_Example";
 			};
 			name = Release;
