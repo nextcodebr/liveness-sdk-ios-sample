@@ -1,8 +1,7 @@
 # NXCDLivenessSDK
 ## Example
 
-To run the example project, clone the repo, and run `pod install` from the project root directory first.
-Open `NXCDLivenessSDK.xcworkspace` in Xcode and run.
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
 
@@ -12,43 +11,41 @@ NXCDLivenessSDK is available through [CocoaPods](https://cocoapods.org). To inst
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'NXCDLivenessSDK'
+pod 'NXCDLivenessSDK', :git => 'https://github.com/nextcodebr/liveness-sdk-podspec-ios.git'
 ```
 
 ## Using NXCDLivenessSDK
+
+## 1. Face Detection 
 
 Implement `LivenessCameraViewControllerDelegate` protocol to handle SDK events:
 
 ```swift
 extension StartViewController: LivenessCameraViewControllerDelegate {
-    func completedLivenessProcessing(livenessResult: LivenessResult?) {
+    func completedLivenessProcessing(result: Result<[String: Any], SDKError>, image: UIImage?) {
         self.dismiss(animated: true) {
-            if let livenessResult = livenessResult {
-                if livenessResult.isAlive {
-                    let successViewController = SuccessViewController()
-                    successViewController.delegate = self
-
-                    self.present(successViewController, animated: true)
+            switch result {
+            case .success(let livenessResult):
+                if let data = livenessResult["data"] as? [String: Any],
+                    let isAlive = data["isAlive"] as? Bool {
+                        if isAlive {
+                            self.goToSuccessViewController(model: SuccessOCRModel(isDocumentDetected: false))
+                        }
+                        else {
+                            let failureViewController = FailureViewController()
+                            failureViewController.delegate = self
+                            
+                            self.present(failureViewController, animated: true)
+                        }
+                } else {
+                    self.showAlertError()
                 }
-                else {
-                    let failureViewController = FailureViewController()
-                    failureViewController.delegate = self
-
-                    self.present(failureViewController, animated: true)
-                }
-            }
-            else {
-                let alertController = UIAlertController(title: "Ooops!", message: "Desculpe o transtorno, mas ocorreu um erro. Por favor, tente novamente.", preferredStyle: .alert)
-
-                let alertAction = UIAlertAction(title: "OK", style: .default) { (_) in
-                    alertController.dismiss(animated: true)
-                }
-
-                alertController.addAction(alertAction)
-
-                self.present(alertController, animated: true)
+            case .failure(let error):
+                print(error)
+                self.showAlertError()
             }
         }
+    }
     }
 }
 ```
@@ -69,23 +66,151 @@ let appearance = LivenessCameraViewControllerAppearance(
 )
 ```
 
+Use `LivenessPoseDetectionParameters` to pass the detection timeout:
+
+```swift
+let parameters = LivenessPoseDetectionParameters(detectionTimeout: 20.0)
+```
+
 Use `LivenessServiceConfiguration` to pass API Key and configure SDK for testing or production mode:
 
 ```swift
 let livenessServiceConfiguration = LivenessServiceConfiguration(isTest: false, apiKey: "<put your api key here>")
 ```
 
-Create an instance of `LivenessCameraViewController` and present it:
+If you want to customize the capture instructions, use `LivenessInstructionsModel` to pass the messages:
 
 ```swift
-let livenessCameraViewController = LivenessCameraViewController(livenessServiceConfiguration: livenessServiceConfiguration, appearance: appearance)
-livenessCameraViewController.delegate = self
-self.present(livenessCameraViewController, animated: true)
+let livenessInstructions = LivenessInstructionsModel(
+    moreThanOnePerson: "Mais de uma pessoa detectada",
+    keepYourEyesOpen: "Mantenha os olhos abertos",
+    keepNaturalExpression: "Mantenha uma expressão neutra",
+    turnLeft: "Vire para a esquerda",
+    turnRight: "Vire para a direita",
+    lowerYourHead: "Abaixe a cabeça",
+    liftYourHead: "Levante a cabeça",
+    bringFaceCloser: "Aproxime o rosto",
+    moveFaceAway: "Afaste o rosto",
+    centerTheFace: "Centralize o rosto",
+    processing: "Processando"
+)
+```
+
+Create an instance of `LivenessViewModel`, `LivenessCameraViewController` and present it:
+
+```swift
+// IF YOU CREATE A LIVENESS INSTRUCTIONS
+let viewModel = LivenessViewModel(serviceConfig: livenessServiceConfiguration, 
+                                detectionParameters: parameters, 
+                                livenessInstructions: livenessInstructions)
+
+// ELSE, THE DEFAULT WILL BE USED
+let viewModel = LivenessViewModel(serviceConfig: livenessServiceConfiguration, 
+                                detectionParameters: parameters)
+
+let livenessCameraViewController = LivenessCameraViewController(appearance: appearance,
+                                                                viewModel: viewModel)
+livenessCameraViewController.delegate = startVC
+startVC.present(livenessCameraViewController, animated: true)
+```
+---
+
+## 2. Document Detection
+
+Implement `DocumentCameraViewControllerDelegate` protocol to handle SDK events:
+
+```swift
+extension StartViewController: DocumentCameraViewControllerDelegate {
+    func completedDocumentProcessing(documentResult: Result<[String: Any], SDKError>, image: UIImage?) {
+        dismiss(animated: true) {
+            switch documentResult {
+            case .success(let result):
+                if let data = result["data"] as? [[String: Any]] {
+                    print(data)
+                }
+                
+                guard let image = image else { return }
+                self.imageArray.append(image)
+                
+                let otherSide = OtherSideDocumentViewController()
+                otherSide.delegate = self
+                
+                self.present(otherSide, animated: true)
+                
+            case .failure(let error):
+                print(error)
+                self.showAlertError()
+            }
+        }
+    }
+}
+```
+
+Use  `DocumentCameraViewControllerAppearance` to customize layout:
+
+```swift
+let appearance = DocumentCameraViewControllerAppearance(
+    hideCloseButton: false,
+    closeButtonColor: .white,
+    footerBackgroundColor: .white,
+    footerCornderRadius: 6.0,
+    instructionsFont: .preferredFont(forTextStyle: .headline),
+    instructionsTextColor: .black,
+    faceCutoutBackgroundColor: UIColor.black.withAlphaComponent(0.5),
+    faceCutoutPositiveColor: .green,
+    faceCutoutNegativeColor: .red,
+    shouldShowRectangleObjectDetect: true,
+    rectangleObjectDetectColor: .white
+)
+```
+
+Use `DocumentServiceConfiguration` to pass API Key and configure SDK for testing or production mode:
+
+```swift
+let documentServiceConfiguration = DocumentServiceConfiguration(isTest: false, apiKey: "<put your api key here>")
+```
+
+Use `DocumentDetectionParameters` to pass the detection timeout:
+
+```swift
+let parameters = DocumentDetectionParameters(detectionTimeout: 20.0)
+```
+
+If you want to customize the capture instructions, use `DocumentInstructionsModel` to pass the messages:
+
+```swift
+let documentInstructions = DocumentInstructionsModel(
+    phoneParallelToDocument: "Colocar telefone paralelo ao documento",
+    bringCameraCloser: "Aproxime a câmera",
+    moveCameraAway: "Afaste a câmera",
+    centerTheDocument: "Centralize o documento",
+    processing: "Processando"
+)
+```
+
+Create an instance of `DocumentViewModel`, `DocumentCameraViewController` and present it:
+
+```swift
+// IF YOU CREATE A DOCUMENT INSTRUCTIONS
+let viewModel = DocumentViewModel(serviceConfig: documentServiceConfiguration, 
+                                detectionParameters: parameters,
+                                documentInstructions: documentInstructions)
+
+// ELSE, THE DEFAULT WILL BE USED
+let viewModel = DocumentViewModel(serviceConfig: documentServiceConfiguration, 
+                                detectionParameters: parameters)
+
+let documentCameraViewController = DocumentCameraViewController(appearance: appearance,
+                                                                viewModel: viewModel)
+documentCameraViewController.delegate = startVC
+startVC.present(documentCameraViewController, animated: true)
 ```
 
 ## Author
 
 Spencer Müller Diniz, spencer.diniz@rarolabs.com.br
+
+Lucas Santana Brito, lucas.brito@rarolabs.com.br
 
 ## License
 
