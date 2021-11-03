@@ -96,21 +96,17 @@ let livenessInstructions = LivenessInstructionsModel(
 )
 ```
 
-Create an instance of `LivenessViewModel`, `LivenessCameraViewController` and present it:
+Create an instance of `LivenessCameraViewController` through the static method 'start' of the 'Liveness' class and present it:
 
 ```swift
 // IF YOU CREATE A LIVENESS INSTRUCTIONS
-let viewModel = LivenessViewModel(serviceConfig: livenessServiceConfiguration, 
+let livenessVC = Liveness.start(serviceConfig: livenessServiceConfiguration, 
                                 detectionParameters: parameters, 
                                 livenessInstructions: livenessInstructions)
 
 // ELSE, THE DEFAULT WILL BE USED
-let viewModel = LivenessViewModel(serviceConfig: livenessServiceConfiguration, 
-                                detectionParameters: parameters)
-
-let livenessCameraViewController = LivenessCameraViewController(appearance: appearance,
-                                                                viewModel: viewModel)
-livenessCameraViewController.delegate = startVC
+let livenessVC = Liveness.start(serviceConfig: livenessServiceConfiguration, delegate: startVC)
+            
 startVC.present(livenessCameraViewController, animated: true)
 ```
 ---
@@ -188,21 +184,18 @@ let documentInstructions = DocumentInstructionsModel(
 )
 ```
 
-Create an instance of `DocumentViewModel`, `DocumentCameraViewController` and present it:
+Create an instance of `DocumentCameraViewController` through the static method 'start' of the Document class and present it:
 
 ```swift
 // IF YOU CREATE A DOCUMENT INSTRUCTIONS
-let viewModel = DocumentViewModel(serviceConfig: documentServiceConfiguration, 
+let documentCameraViewController = Document.start(serviceConfig: documentServiceConfiguration, 
                                 detectionParameters: parameters,
                                 documentInstructions: documentInstructions)
 
 // ELSE, THE DEFAULT WILL BE USED
-let viewModel = DocumentViewModel(serviceConfig: documentServiceConfiguration, 
-                                detectionParameters: parameters)
+let documentCameraViewController = Document.start(serviceConfig: documentServiceConfiguration,
+                                                              delegate: startVC)
 
-let documentCameraViewController = DocumentCameraViewController(appearance: appearance,
-                                                                viewModel: viewModel)
-documentCameraViewController.delegate = startVC
 startVC.present(documentCameraViewController, animated: true)
 ```
 
