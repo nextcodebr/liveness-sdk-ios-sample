@@ -3,7 +3,7 @@ use_frameworks!
 platform :ios, '10.0'
 
 target 'NXCDLivenessSDK_Example' do
-  pod 'NXCDLivenessSDK', :git => 'git@github.com:nextcodebr/liveness-sdk-ios.git', :tag => '1.0.3'
+  pod 'NXCDLivenessSDK', :git => 'https://github.com/nextcodebr/liveness-sdk-podspec-ios.git'
 
   target 'NXCDLivenessSDK_Tests' do
     inherit! :search_paths

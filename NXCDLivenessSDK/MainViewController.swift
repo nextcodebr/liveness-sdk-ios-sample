@@ -100,20 +100,9 @@ class MainViewController: UIViewController {
     
     //MARK: - Fuctions
     @objc private func goToCaptureFace() {
-        let appearance = LivenessCameraViewControllerAppearance(
-            hideCloseButton: false,
-            closeButtonColor: .white,
-            footerBackgroundColor: .white,
-            footerCornderRadius: 6.0,
-            instructionsFont: .preferredFont(forTextStyle: .headline),
-            instructionsTextColor: .black,
-            faceCutoutBackgroundColor: UIColor.black.withAlphaComponent(0.5),
-            faceCutoutPositiveColor: UIColor.green,
-            faceCutoutNegativeColor: UIColor.red
-        )
-        let parameters = LivenessPoseDetectionParameters(detectionTimeout: 20.0)
         let livenessServiceConfiguration = LivenessServiceConfiguration(isTest: true,
                                                                         apiKey: "<put your api key here>")
+        
         let instructions = InstructionsModel(instructionOne: "Posicione o seu rosto centralizado na área delimitada.",
                                              instructionTwo: "Mantenha uma expressão neutra.",
                                              instructionThree: "Mantenha os olhos abertos.",
@@ -124,32 +113,17 @@ class MainViewController: UIViewController {
         let startVC = StartViewController(instructions: instructions)
         
         startVC.startCapture = {
-            let viewModel = LivenessViewModel(serviceConfig: livenessServiceConfiguration, detectionParameters: parameters)
-            let livenessCameraViewController = LivenessCameraViewController(appearance: appearance,
-                                                                            viewModel: viewModel)
-            livenessCameraViewController.delegate = startVC
-            startVC.present(livenessCameraViewController, animated: true)
+            let livenessVC = Liveness.start(serviceConfig: livenessServiceConfiguration,
+                                            delegate: startVC)
+            startVC.present(livenessVC, animated: true)
         }
         
         present(startVC, animated: true)
     }
     
     @objc private func goToCaptureDocument() {
-        let appearance = DocumentCameraViewControllerAppearance(
-            hideCloseButton: false,
-            closeButtonColor: .white,
-            footerBackgroundColor: .white,
-            footerCornderRadius: 6.0,
-            instructionsFont: .preferredFont(forTextStyle: .headline),
-            instructionsTextColor: .black,
-            faceCutoutBackgroundColor: UIColor.black.withAlphaComponent(0.5),
-            faceCutoutPositiveColor: .green,
-            faceCutoutNegativeColor: .red,
-            shouldShowRectangleObjectDetect: true,
-            rectangleObjectDetectColor: .white
-        )
-        let parameters = DocumentDetectionParameters(detectionTimeout: 20.0)
         let documentServiceConfiguration = DocumentServiceConfiguration(isTest: true, apiKey: "<put your api key here>")
+        
         let instructions = InstructionsModel(instructionOne: "Coloque o documento sem capa sobre uma mesa.",
                                              instructionTwo: "Procure um local bem ilumidado.",
                                              instructionThree: "Posicione o documento centralizado na área delimitada pela câmera.",
@@ -160,11 +134,8 @@ class MainViewController: UIViewController {
         let startVC = StartViewController(instructions: instructions)
         
         startVC.startCapture = {
-            let viewModel = DocumentViewModel(serviceConfig: documentServiceConfiguration, detectionParameters: parameters)
-            let documentCameraViewController = DocumentCameraViewController(appearance: appearance,
-                                                                            viewModel: viewModel)
-            documentCameraViewController.delegate = startVC
-            startVC.present(documentCameraViewController, animated: true)
+            let documentVC = Document.start(serviceConfig: documentServiceConfiguration, delegate: startVC)
+            startVC.present(documentVC, animated: true)
         }
         
         present(startVC, animated: true)
